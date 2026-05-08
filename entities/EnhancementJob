@@ -1,0 +1,60 @@
+{
+    "name": "EnhancementJob",
+    "type": "object",
+    "properties": {
+        "original_image_url": {
+            "type": "string",
+            "description": "URL of the uploaded original image"
+        },
+        "enhanced_image_url": {
+            "type": "string",
+            "description": "URL of the enhanced image"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "pending",
+                "processing",
+                "completed",
+                "failed"
+            ],
+            "default": "pending",
+            "description": "Current processing status"
+        },
+        "enhancement_type": {
+            "type": "string",
+            "enum": [
+                "upscale_2x",
+                "upscale_4x",
+                "face_restore",
+                "denoise",
+                "color_correct",
+                "old_photo_restore",
+                "sharpen",
+                "prompt_enhance"
+            ],
+            "description": "Type of enhancement applied"
+        },
+        "prompt": {
+            "type": "string",
+            "description": "Optional prompt for prompt-based enhancement"
+        },
+        "credits_used": {
+            "type": "number",
+            "default": 1,
+            "description": "Number of credits consumed"
+        },
+        "file_name": {
+            "type": "string",
+            "description": "Original file name"
+        },
+        "file_size": {
+            "type": "number",
+            "description": "File size in bytes"
+        }
+    },
+    "required": [
+        "original_image_url",
+        "enhancement_type"
+    ]
+}

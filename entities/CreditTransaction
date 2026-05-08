@@ -1,0 +1,38 @@
+{
+    "name": "CreditTransaction",
+    "type": "object",
+    "properties": {
+        "user_email": {
+            "type": "string",
+            "description": "Email of the user"
+        },
+        "amount": {
+            "type": "number",
+            "description": "Credits added (positive) or used (negative)"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "usage",
+                "daily_grant",
+                "purchase",
+                "bonus",
+                "admin_adjustment"
+            ],
+            "description": "Type of transaction"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the transaction"
+        },
+        "job_id": {
+            "type": "string",
+            "description": "Related enhancement job ID if applicable"
+        }
+    },
+    "required": [
+        "user_email",
+        "amount",
+        "type"
+    ]
+}
